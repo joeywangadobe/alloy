@@ -11,7 +11,8 @@ governing permissions and limitations under the License.
 */
 
 import { isFunction, toError } from "../utils";
-import createConfig, { required } from "./createConfig";
+import createConfig from "./createConfig";
+import { required } from "../utils/config-validators";
 
 const configValidators = {
   propertyID: { validate: required },

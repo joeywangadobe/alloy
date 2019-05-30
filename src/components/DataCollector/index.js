@@ -12,7 +12,7 @@ governing permissions and limitations under the License.
 
 import createRequest from "../../core/createRequest";
 import createEvent from "../../core/createEvent";
-import { required, matchesRegEx } from "../../core/createConfig";
+import { secureUrl } from "../../utils/config-validators";
 
 const createDataCollector = ({ config }) => {
   let lifecycle;
@@ -53,7 +53,7 @@ createDataCollector.namespace = "DataCollector";
 createDataCollector.configValidators = {
   collectionUrl: {
     defaultValue: "https://edgegateway.azurewebsites.net",
-    validate: [required, matchesRegEx("^https://[^s/$.?#].[^s]*$")]
+    validate: secureUrl
     // defaultValue: "http://ex-edge.stable-stage.aam-npe.adobeinternal.net/v1"
   },
   device: {
